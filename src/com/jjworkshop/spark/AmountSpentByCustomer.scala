@@ -31,8 +31,8 @@ object AmountSpentByCustomer {
     //Set amounts to two decimals
     val twoDecimalsAmount = totalAmount.mapValues(x => BigDecimal(x).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble)
     
-    //Sort the results by keys
-    val sorted = twoDecimalsAmount.sortByKey(true)
+    //Sort the results by amount spent
+    val sorted = twoDecimalsAmount.sortBy(x => (x._2, x._1))
     
     val results = sorted.collect()
     // Print the results.
