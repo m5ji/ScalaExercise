@@ -23,7 +23,7 @@ object AmountSpentByCustomer {
     val sc = new SparkContext("local[*]", "AmountSpentByCustomer")   
     
     // Read each line of my book into an RDD
-    val input = sc.textFile("./customer-orders.csv")
+    val input = sc.textFile("./files/customer-orders.csv")
     
     //Adding amount of each customer spent
     val totalAmount = input.map(parseLine).reduceByKey((x,y) => (x+y))
