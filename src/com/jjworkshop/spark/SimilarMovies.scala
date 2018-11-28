@@ -116,7 +116,7 @@ object SimilarMovies {
     val similarityCalculationWithMovieNames = similarityCalculation.map(
         x => ((movieNames.value(x._1._1), movieNames.value(x._1._2)), x._2))
     
-    // Sort by quality score.
+    // Sort by first movie name of each key pair
     val results = similarityCalculationWithMovieNames.sortByKey()
     
     results.foreach(println)
